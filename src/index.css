@@ -33,29 +33,42 @@ h6 {
   font-family: "Geist", sans-serif;
 }
 
-body {
-  overflow: hidden;
+/* Desktop: hide overflow to allow GSAP pinning scroll effects */
+@media screen and (min-width: 1025px) {
+  body {
+    overflow: hidden;
+  }
 }
 
-/* Allow scrolling on mobile */
-@media only screen and (max-width: 768px) {
+/* ── Mobile & Tablet: fully unlock vertical scrolling ── */
+@media only screen and (max-width: 1024px) {
+  html,
   body {
-    overflow: auto !important;
-    height: auto !important;
-    min-height: 100vh !important;
-    touch-action: manipulation;
-  }
-
-  html {
     overflow-x: hidden !important;
     overflow-y: auto !important;
-    touch-action: manipulation;
+    height: auto !important;
+    min-height: 100% !important;
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch;
   }
 
-  /* Ensure no fixed elements block scrolling */
+  /* Stack all top-level containers as a normal column flow */
   .container-main {
     position: static !important;
     height: auto !important;
+    width: 100% !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  /* Every direct section child must be full-width and auto-height */
+  .container-main > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    position: relative !important;
+    overflow: visible !important;
   }
 }
 

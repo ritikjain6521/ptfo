@@ -12,6 +12,8 @@ import {
 } from "./utils/mouseUtils";
 import setAnimations from "./utils/animationUtils";
 import { setProgress } from "../Loading";
+import { setCharTimeline, setAllTimeline } from "../utils/GsapScroll";
+import gsap from "gsap";
 
 const Scene = () => {
   const canvasDiv = useRef<HTMLDivElement | null>(null);
@@ -54,7 +56,11 @@ const Scene = () => {
       let progress = setProgress((value) => setLoading(value));
       const { loadCharacter } = setCharacter(renderer, scene, camera);
 
+      let isMounted = true;
+      let ctx: gsap.Context | undefined;
+
       loadCharacter().then((gltf) => {
+        if (!isMounted) return;
         if (gltf) {
           const animations = setAnimations(gltf);
           hoverDivRef.current && animations.hover(gltf, hoverDivRef.current);
@@ -62,10 +68,17 @@ const Scene = () => {
           let character = gltf.scene;
           setChar(character);
           scene.add(character);
+          
+          ctx = gsap.context(() => {
+            setCharTimeline(character, camera);
+            setAllTimeline();
+          });
+
           headBone = character.getObjectByName("spine006") || null;
           screenLight = character.getObjectByName("screenlight") || null;
           progress.loaded().then(() => {
             setTimeout(() => {
+              if (!isMounted) return;
               light.turnOnLights();
               animations.startIntro();
             }, 2500);
@@ -82,14 +95,10 @@ const Scene = () => {
       const onMouseMove = (event: MouseEvent) => {
         handleMouseMove(event, (x, y) => (mouse = { x, y }));
       };
-      let debounce: number | undefined;
-      const onTouchStart = (event: TouchEvent) => {
-        const element = event.target as HTMLElement;
-        debounce = setTimeout(() => {
-          element?.addEventListener("touchmove", (e: TouchEvent) =>
-            handleTouchMove(e, (x, y) => (mouse = { x, y }))
-          );
-        }, 200);
+
+      const onTouchMove = (event: TouchEvent) => {
+        // Reliably track finger position across entire document
+        handleTouchMove(event, (x, y) => (mouse = { x, y }));
       };
 
       const onTouchEnd = () => {
@@ -99,14 +108,11 @@ const Scene = () => {
         });
       };
 
-      document.addEventListener("mousemove", (event) => {
-        onMouseMove(event);
-      });
-      const landingDiv = document.getElementById("landingDiv");
-      if (landingDiv) {
-        landingDiv.addEventListener("touchstart", onTouchStart);
-        landingDiv.addEventListener("touchend", onTouchEnd);
-      }
+      document.addEventListener("mousemove", onMouseMove);
+      // Attach touchmove to document so finger tracking works anywhere on the landing
+      document.addEventListener("touchmove", onTouchMove, { passive: true });
+      document.addEventListener("touchend", onTouchEnd);
+
       const animate = () => {
         requestAnimationFrame(animate);
         if (headBone) {
@@ -128,7 +134,8 @@ const Scene = () => {
       };
       animate();
       return () => {
-        clearTimeout(debounce);
+        isMounted = false;
+        ctx?.revert();
         scene.clear();
         renderer.dispose();
         window.removeEventListener("resize", () =>
@@ -137,11 +144,9 @@ const Scene = () => {
         if (canvasDiv.current) {
           canvasDiv.current.removeChild(renderer.domElement);
         }
-        if (landingDiv) {
-          document.removeEventListener("mousemove", onMouseMove);
-          landingDiv.removeEventListener("touchstart", onTouchStart);
-          landingDiv.removeEventListener("touchend", onTouchEnd);
-        }
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("touchmove", onTouchMove);
+        document.removeEventListener("touchend", onTouchEnd);
       };
     }
   }, []);

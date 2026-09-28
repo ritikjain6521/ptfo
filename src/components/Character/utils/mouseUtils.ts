@@ -43,7 +43,13 @@ export const handleHeadRotation = (
   lerp: (x: number, y: number, t: number) => number
 ) => {
   if (!headBone) return;
-  if (window.scrollY < 200) {
+
+  // On mobile (touch devices), always allow tracking regardless of scroll position.
+  // On desktop, only track when near the top (landing section is pinned there).
+  const isMobile = window.innerWidth <= 1024;
+  const shouldTrack = isMobile || window.scrollY < 200;
+
+  if (shouldTrack) {
     const maxRotation = Math.PI / 6;
     headBone.rotation.y = lerp(
       headBone.rotation.y,

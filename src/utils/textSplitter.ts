@@ -94,54 +94,51 @@ export class TextSplitter {
   }
 
   private splitLines(element: Element, linesClass: string) {
-    // Use requestAnimationFrame to ensure layout is complete
-    requestAnimationFrame(() => {
-      const items = element.querySelectorAll(".split-word, .split-char");
-      if (items.length === 0) return;
+    const items = element.querySelectorAll(".split-word, .split-char");
+    if (items.length === 0) return;
 
-      let currentLine: Element[] = [];
-      let lines: Element[][] = [];
-      let currentTop = 0;
+    let currentLine: Element[] = [];
+    let lines: Element[][] = [];
+    let currentTop = 0;
 
-      items.forEach((item) => {
-        const rect = item.getBoundingClientRect();
-        if (currentTop === 0) {
-          currentTop = rect.top;
-        }
-
-        if (Math.abs(rect.top - currentTop) > 5) {
-          // New line
-          if (currentLine.length > 0) {
-            lines.push([...currentLine]);
-          }
-          currentLine = [item];
-          currentTop = rect.top;
-        } else {
-          currentLine.push(item);
-        }
-      });
-
-      if (currentLine.length > 0) {
-        lines.push(currentLine);
+    items.forEach((item) => {
+      const rect = item.getBoundingClientRect();
+      if (currentTop === 0) {
+        currentTop = rect.top;
       }
 
-      // Wrap lines
-      lines.forEach((line) => {
-        if (line.length === 0) return;
-        const lineWrapper = document.createElement("span");
-        lineWrapper.className = linesClass;
-        lineWrapper.style.display = "block";
-        const firstItem = line[0];
-        firstItem.parentNode?.insertBefore(lineWrapper, firstItem);
-        line.forEach((item) => {
-          if (item.parentNode === lineWrapper.parentNode) {
-            lineWrapper.appendChild(item);
-          }
-        });
-      });
-
-      this.lines.push(...Array.from(element.querySelectorAll(`.${linesClass}`)));
+      if (Math.abs(rect.top - currentTop) > 5) {
+        // New line
+        if (currentLine.length > 0) {
+          lines.push([...currentLine]);
+        }
+        currentLine = [item];
+        currentTop = rect.top;
+      } else {
+        currentLine.push(item);
+      }
     });
+
+    if (currentLine.length > 0) {
+      lines.push(currentLine);
+    }
+
+    // Wrap lines
+    lines.forEach((line) => {
+      if (line.length === 0) return;
+      const lineWrapper = document.createElement("span");
+      lineWrapper.className = linesClass;
+      lineWrapper.style.display = "block";
+      const firstItem = line[0];
+      firstItem.parentNode?.insertBefore(lineWrapper, firstItem);
+      line.forEach((item) => {
+        if (item.parentNode === lineWrapper.parentNode) {
+          lineWrapper.appendChild(item);
+        }
+      });
+    });
+
+    this.lines.push(...Array.from(element.querySelectorAll(`.${linesClass}`)));
   }
 
   revert() {
