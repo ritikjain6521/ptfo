@@ -12,43 +12,22 @@ interface CertItem {
 const certifications: CertItem[] = [
   {
     id: 1,
-    title: "AWS Solutions Architect Associate",
-    issuer: "Amazon Web Services",
-    date: "2024",
+    title: "Full Stack Web Development",
+    issuer: "Udemy",
+    date: "2023",
     credentialUrl: "#",
   },
   {
     id: 2,
-    title: "Kubernetes Administrator (CKA)",
-    issuer: "Linux Foundation",
+    title: "React.js Advanced Concepts",
+    issuer: "Coursera",
     date: "2023",
     credentialUrl: "#",
   },
   {
     id: 3,
-    title: "Docker Certified Associate",
-    issuer: "Docker",
-    date: "2023",
-    credentialUrl: "#",
-  },
-  {
-    id: 4,
-    title: "Terraform Associate",
-    issuer: "HashiCorp",
-    date: "2023",
-    credentialUrl: "#",
-  },
-  {
-    id: 5,
-    title: "Jenkins Certification",
-    issuer: "Cloudbees",
-    date: "2022",
-    credentialUrl: "#",
-  },
-  {
-    id: 6,
-    title: "Linux Foundation Certified",
-    issuer: "Linux Foundation",
+    title: "Node.js & Express Backend",
+    issuer: "freeCodeCamp",
     date: "2022",
     credentialUrl: "#",
   },
@@ -62,7 +41,7 @@ const Certification = () => {
           <h2>
             <span className="cert-accent">Certifications</span>
           </h2>
-          <p className="cert-subtitle">Professional Credentials & Achievements</p>
+          <p className="cert-subtitle">Professional Credentials &amp; Achievements</p>
         </div>
 
         <div className="certification-grid">

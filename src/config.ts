@@ -1,141 +1,103 @@
 export const config = {
     developer: {
-        name: "Pankesh",
-        fullName: "Pankesh Dange",
-        title: "DevOps Engineer",
-        description: "DevOps Engineer with 8+ years of experience specializing in cloud infrastructure, CI/CD pipelines, containerization, and infrastructure automation. Expert in AWS, Kubernetes, Jenkins, Docker, and building highly available, scalable systems. Passionate about automating deployments, optimizing performance, and implementing DevOps best practices."
+        name: "Ritik",
+        fullName: "Ritik Jain",
+        title: "Full Stack Developer | Web Automation Engineer",
+        description: "Full Stack Developer & Web Automation Engineer with hands-on expertise in building responsive web applications, automating workflows, and delivering scalable solutions. Passionate about writing clean, maintainable code and solving complex technical challenges."
     },
     social: {
-        github: "pankeshdange",
-        email: "pankeshdange1992@gmail.com",
-        location: "Bengaluru, India"
+        github: "ritikjain6521",
+        email: "ritikjain6224@gmail.com",
+        location: "Betul, Madhya Pradesh, India"
     },
     about: {
         title: "About Me",
-        description: "I'm a results-driven IT professional with over 4.5 years of experience in IT operations, system support, and infrastructure management, specializing in cloud and DevOps technologies. I have hands-on expertise across AWS, Azure, and GCP, with a strong focus on building scalable, secure, and cost-efficient cloud environments.\n\nMy core strengths lie in container orchestration using Kubernetes, Infrastructure as Code (Terraform and CloudFormation), and designing robust CI/CD pipelines with Docker, Jenkins, and Git-based workflows. I leverage Python and Shell scripting to automate infrastructure provisioning, streamline deployments, and improve system reliability.\n\nI have a proven track record of optimizing cloud costs—achieving 20–30% savings in AWS environments through proactive monitoring, automation, and performance tuning. I'm also experienced in configuration management with Ansible, and monitoring and observability using Prometheus and Grafana.\n\nWith a solid foundation in Linux system administration and a deep understanding of DevOps practices, microservices architecture, and cloud-native deployments, I focus on delivering efficient, automated, and resilient solutions that drive operational excellence."
+        description: "I'm a Full Stack Developer and Web Automation Engineer with a passion for building modern, performant web applications from end to end. I specialize in the MERN stack — MongoDB, Express.js, React, and Node.js — along with TypeScript, Next.js, and CSS/HTML for crafting rich user interfaces.\n\nOn the automation side, I work extensively with Python-based tools like Selenium, Scrapy, BeautifulSoup, Requests, and Pandas to build scrapers, data pipelines, and workflow automations. I also work with TypeScript-based automation using Apify and Puppeteer.\n\nI've worked as a Web Developer Intern at Futurecept where I contributed to WordPress projects, TypeScript scrapers, Python automation workflows, n8n integrations, and CRM/Blog generation tools. My projects include a Full Stack E-commerce platform, a Password Manager, a Music Streaming App, and my personal portfolio built on MERN.\n\nI hold a B.Sc. / M.Sc. in Computer Science from Chhindwara University (2021–2023) and am certified in Full Stack Web Development (Udemy), React.js Advanced Concepts (Coursera), and Node.js & Express Backend (freeCodeCamp)."
     },
     experiences: [
         {
-            position: "DevOps Engineer",
-            company: "Genie US Tech",
-            period: "Aug 2024 - Present",
-            location: "Bengaluru, Remote",
-            description: "Leading DevOps initiatives and maintaining enterprise-scale cloud infrastructure. Designed and implemented CI/CD pipelines, managed containerized applications, and optimized infrastructure performance across AWS environments.",
+            position: "Web Developer Intern",
+            company: "Futurecept",
+            period: "Nov 2025 - Present",
+            location: "Remote · 5864h+ Tracked",
+            description: "Working across WordPress development, TypeScript-based automation (Apify, Puppeteer), Python scrapers (Selenium, Scrapy, BeautifulSoup), n8n automation workflows (LinkedIn API, OpenAI), and CRM/Blog generation systems using OpenAI, MongoDB, and Canva API.",
             responsibilities: [
-                "Maintained high availability and reliability of cloud infrastructure through continuous monitoring and proactive issue resolution",
-                "Provisioned and managed AWS resources (EC2, S3, RDS, VPC, IAM) using Infrastructure as Code (Terraform) following best practices",
-                "Built and maintained CI/CD pipelines using Jenkins to automate build, test, and deployment workflows",
-                "Troubleshot and resolved complex issues across system, network, and application layers to reduce downtime",
-                "Utilized Docker for containerization of applications to ensure consistency across development and production environments",
-                "Managed source code repositories using Git and GitHub, enabling version control and collaborative development",
-                "Implemented monitoring and logging solutions to improve performance visibility and system reliability",
-                "Handled incident management processes, including root cause analysis and implementation of preventive measures",
-                "Configured and managed secure access controls, roles, and permissions in cloud environments"
+                "Developed SKT Blog Theme for WordPress (40h+) using WordPress, PHP, CSS, JavaScript",
+                "Built Kirkwood Mountain Getaway site (107h 07m) using WordPress, PHP, and Jira",
+                "Created Google Maps Scraper (100h+) with TypeScript, Apify, Puppeteer, Node.js",
+                "Built Indeed Job Scraper (80h+) using TypeScript, Apify, Cheerio, Node.js",
+                "Developed LinkedIn Python Scraper (150h+) with Python, Selenium, BeautifulSoup, Requests",
+                "Created Indeed Python Scraper (100h+) with Python, Scrapy, Requests, Pandas",
+                "Built LinkedIn Automation Content Research using n8n, LinkedIn API, OpenAI",
+                "Developed Email Verifier using n8n, SMTP, DNS, JavaScript",
+                "Built CRM360 Blog Generation Project (230h 56m) with Node.js, OpenAI, MongoDB, n8n, Canva API",
+                "Developed HelioX Website (21h 26m) using WordPress, JavaScript, CSS"
             ],
-            technologies: ["AWS", "Terraform", "Docker", "Kubernetes", "Jenkins", "Git", "GitHub", "Linux", "Monitoring"]
-        },
-        {
-            position: "Associate IT Engineer",
-            company: "ICICI Securities",
-            period: "Aug 2017 - Oct 2019",
-            location: "Mumbai, On-site",
-            description: "Administered and maintained Linux servers, managed AWS services, and implemented CI/CD pipelines. Reduced manual deployment effort and improved infrastructure reliability through automation.",
-            responsibilities: [
-                "Administered and maintained Linux servers (Ubuntu/CentOS/RHEL) including installation, configuration, patching, and performance optimization",
-                "Managed AWS services (EC2, S3, IAM, VPC) to ensure scalable, secure, and highly available infrastructure",
-                "Built and maintained CI/CD pipelines using Jenkins, reducing manual deployment effort and release time",
-                "Used Git & GitHub for version control, branching, and collaboration across teams",
-                "Containerized applications using Docker, ensuring consistent environments and faster deployments",
-                "Deployed and managed applications on Apache Tomcat, supporting Java-based services",
-                "Automated build processes using Maven for efficient dependency management",
-                "Provisioned infrastructure using Terraform, enabling automated and repeatable deployments",
-                "Applied Kubernetes concepts for container orchestration and scalability",
-                "Implemented monitoring solutions using AWS CloudWatch to track system health and uptime",
-                "Automated repetitive tasks using Bash/Shell scripting, improving operational efficiency"
-            ],
-            technologies: ["Linux", "AWS", "Jenkins", "Git", "GitHub", "Docker", "Tomcat", "Maven", "Terraform", "Kubernetes", "Bash"]
-        },
-        {
-            position: "Product Development Engineer",
-            company: "Angel One",
-            period: "Feb 2015 - Jun 2017",
-            location: "Mumbai, On-site",
-            description: "Managed Linux-based servers and application environments, provided technical support, and implemented automation scripts for operational efficiency.",
-            responsibilities: [
-                "Managed and maintained Linux-based servers and application environments, ensuring high availability, system performance, and security",
-                "Provided technical support to clients, troubleshooting application, server, and infrastructure-related issues to ensure minimal downtime",
-                "Monitored system performance and resolved production incidents, bugs, and deployment issues in a timely manner",
-                "Assisted in application deployment, configuration, and server maintenance across development and production environments",
-                "Collaborated with development and operations teams to improve system reliability and optimize application performance",
-                "Implemented automation scripts using Python/Bash to streamline routine operational and maintenance tasks",
-                "Supported CI/CD pipeline processes and version control using Git to facilitate efficient software delivery",
-                "Performed system monitoring and log analysis to identify issues and ensure stable application performance"
-            ],
-            technologies: ["Linux", "Python", "Bash", "Git", "Networking", "System Administration"]
+            technologies: ["WordPress", "PHP", "TypeScript", "Apify", "Puppeteer", "Python", "Selenium", "Scrapy", "BeautifulSoup", "n8n", "OpenAI", "MongoDB", "Node.js", "JavaScript"]
         }
     ],
     projects: [
         {
             id: 1,
-            title: "AWS 3-Tier Web Architecture Deployment",
-            category: "Cloud Infrastructure",
-            technologies: "AWS (EC2, RDS, ELB), Terraform, Jenkins, Docker",
+            title: "ABH SHOP - Full Stack E-commerce Website",
+            category: "Full Stack",
+            technologies: "React.js, TypeScript, Bootstrap CSS",
             image: "/images/project-1.webp",
-            description: "Designed and deployed a highly available 3-tier web architecture on AWS using Infrastructure as Code with Terraform. Implemented load balancing, auto-scaling, and multi-AZ deployment for enterprise applications ensuring 99.9% uptime."
+            description: "ABH SHOP is a fully responsive and feature-rich e-commerce web application where users can browse products, manage carts, and complete purchases. Built with React.js, TypeScript, and Bootstrap CSS for a polished UI/UX."
         },
         {
             id: 2,
-            title: "CI/CD Pipeline Automation",
-            category: "DevOps Automation",
-            technologies: "Jenkins, GitHub Actions, Git, Docker, Maven, SonarQube",
+            title: "PassOP - Password Manager",
+            category: "Web App",
+            technologies: "HTML5, CSS3, JavaScript",
             image: "/images/project-2.webp",
-            description: "Built comprehensive CI/CD pipelines using Jenkins and GitHub Actions, automating build, test, and deployment workflows. Reduced manual deployment effort by 70% and improved release frequency to daily deployments with zero-downtime deployment strategies."
+            description: "PassOP is a sleek and simple web-based password manager that allows users to securely save, view, and manage their passwords. Built with HTML5, CSS3, and JavaScript for a clean, minimal interface."
         },
         {
             id: 3,
-            title: "Kubernetes Microservices Deployment",
-            category: "Container Orchestration",
-            technologies: "Kubernetes, Docker, Helm, GitLab CI, Prometheus, Grafana",
+            title: "My Personal Portfolio",
+            category: "Full Stack",
+            technologies: "React.js, HTML5, Tailwind CSS",
             image: "/images/project-3.webp",
-            description: "Orchestrated containerized microservices using Kubernetes with Helm charts for package management. Implemented auto-scaling, self-healing, and rolling updates with comprehensive monitoring using Prometheus and Grafana dashboards."
+            description: "A fully-featured, responsive, and modern portfolio website built using the MERN Stack. Showcases projects, skills, work experience, and contact information with smooth animations and a premium design."
         },
         {
             id: 4,
-            title: "Infrastructure Monitoring & Logging Stack",
-            category: "Observability",
-            technologies: "Prometheus, Grafana, ELK Stack, Datadog, AWS CloudWatch",
+            title: "Full Stack Music App",
+            category: "Full Stack",
+            technologies: "React.js, Javascript, PostgreSQL",
             image: "/images/project-4.webp",
-            description: "Implemented enterprise-grade monitoring and centralized logging infrastructure with real-time alerts and custom dashboards. Integrated multiple data sources including AWS CloudWatch, application metrics, and log aggregation for complete visibility."
+            description: "A full-featured, responsive Music Streaming Website built using the MERN stack with PostgreSQL. Features include music discovery, playlist management, user authentication, and an immersive audio player experience."
         },
         {
             id: 5,
-            title: "Infrastructure as Code Repository Management",
-            category: "IaC Management",
-            technologies: "Terraform, Ansible, AWS, GitHub, GitLab, Python",
+            title: "CRM360 Blog Generation",
+            category: "Automation",
+            technologies: "Node.js, OpenAI, MongoDB, n8n, Canva API",
             image: "/images/project-5.webp",
-            description: "Built comprehensive Infrastructure as Code framework using Terraform and Ansible for AWS resource management. Implemented version control integration, policy enforcement, and automated testing ensuring infrastructure consistency across environments."
+            description: "An advanced CRM blog generation system that leverages OpenAI for content creation, MongoDB for storage, and Canva API for image generation. Automates the entire content marketing pipeline."
         }
     ],
     contact: {
-        email: "pankeshdange1992@gmail.com",
-        github: "https://github.com/pankeshdange",
-        linkedin: "https://www.linkedin.com/in/pankeshd/",
-        twitter: "https://x.com/pankeshdange",
-        facebook: "https://www.facebook.com/pankesh.dange",
-        instagram: "https://www.instagram.com/pankeshdange"
+        email: "ritikjain6224@gmail.com",
+        github: "https://github.com/ritikjain6521",
+        linkedin: "https://www.linkedin.com/in/ritik-jain-77a090267/",
+        twitter: "https://x.com/ritikjain",
+        facebook: "https://www.facebook.com/ritikjain",
+        instagram: "https://www.instagram.com/ritikjain"
     },
     skills: {
         develop: {
-            title: "CLOUD PLATFORMS & AWS",
-            description: "Multi-cloud infrastructure expertise",
-            details: "Expert in AWS cloud services including EC2, S3, RDS, VPC, IAM, CloudFormation, CloudWatch, Lambda, and Route53. Proficient in multi-cloud strategies with Azure and GCP. Infrastructure design, security, network configuration, and cost optimization.",
-            tools: ["AWS", "Azure", "GCP", "EC2", "RDS", "S3", "VPC", "IAM", "CloudFormation", "CloudWatch", "Lambda", "Route53"]
+            title: "FRONTEND & FULL STACK",
+            description: "Modern web development expertise",
+            details: "Expert in building responsive, performant web applications using React.js, Next.js, TypeScript, JavaScript, HTML5, and CSS3. Proficient in Tailwind CSS, Bootstrap, and component-based UI architecture. Strong understanding of REST APIs and real-time applications.",
+            tools: ["React.js", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap CSS", "Redux", "Node.js", "Express.js", "MongoDB"]
         },
         design: {
-            title: "DEVOPS TOOLS & AUTOMATION",
-            description: "Complete DevOps & Infrastructure automation toolchain",
-            details: "Expertise in containerization, orchestration, CI/CD pipelines, infrastructure automation, and monitoring. Proficient in Jenkins, Docker, Kubernetes, Terraform, Ansible, and monitoring solutions. Version control mastery with Git, GitHub, and GitLab.",
-            tools: ["Jenkins", "Docker", "Kubernetes", "Terraform", "Ansible", "Git", "GitHub", "GitLab", "GitHub Actions", "Maven", "Tomcat", "Prometheus", "Grafana", "Python", "Bash"]
+            title: "AUTOMATION & BACKEND",
+            description: "Web scraping, automation & backend development",
+            details: "Extensive experience in web automation using Python (Selenium, Scrapy, BeautifulSoup, Requests, Pandas) and TypeScript (Apify, Puppeteer, Cheerio). Backend expertise with Node.js, Express.js, MongoDB, and PostgreSQL. Skilled in API integration, workflow automation, and n8n/LinkedIn/OpenAI integrations.",
+            tools: ["Python", "Selenium", "Scrapy", "BeautifulSoup", "Requests", "Pandas", "Apify", "Puppeteer", "Cheerio", "Node.js", "Express.js", "PostgreSQL", "OpenAI API", "Git", "GitHub", "Vercel", "Render"]
         }
     }
 };

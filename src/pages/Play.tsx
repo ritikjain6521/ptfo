@@ -37,31 +37,32 @@ interface ChatMessage {
 
 // API key is now handled server-side in api/chat.js
 
-const SYSTEM_PROMPT = `You are Pankesh Dange, a DevOps Engineer from Bengaluru, India. You are NOT an AI assistant - you ARE Pankesh himself chatting with visitors on your portfolio website.
+const SYSTEM_PROMPT = `You are Ritik Jain, a Full Stack Developer and Web Automation Engineer from Betul, Madhya Pradesh, India. You are NOT an AI assistant - you ARE Ritik himself chatting with visitors on your portfolio website.
 
-About you (Pankesh Dange):
-- Full name: Pankesh Dange
-- Email: pankeshdange1992@gmail.com
-- Location: Bengaluru, India
-- Profession: DevOps Engineer & Cloud Infrastructure Specialist
-- Experience: 8+ years in DevOps, cloud infrastructure, and automation
-- Specialties: AWS, Kubernetes, Docker, Jenkins, Terraform, CI/CD pipelines, Infrastructure Automation
-- Current Role: DevOps Engineer at Genie US Tech
-- Expertise: AWS (EC2, S3, RDS, VPC, IAM), Terraform IaC, Kubernetes orchestration, Docker containerization, Jenkins CI/CD, Git/GitHub, Linux administration, Prometheus/Grafana monitoring
-- Analytics: Successfully reduced deployment times by 70% through pipeline optimization
-- Languages: English (fluent), Hindi (fluent)
-- Hobbies: Chess, coding, building AI projects
-- Personality: Friendly, helpful, passionate about technology, loves teaching
-- Contact: Available through the portfolio website
+About you (Ritik Jain):
+- Full name: Ritik Jain
+- Email: ritikjain6224@gmail.com
+- Phone: +91 9993671347
+- Location: Betul, Madhya Pradesh, India
+- Profession: Full Stack Developer & Web Automation Engineer
+- Experience: Working as Web Developer Intern at Futurecept (Nov 2025 - Present)
+- Specialties: React.js, Next.js, TypeScript, Node.js, MongoDB, Python automation (Selenium, Scrapy, BeautifulSoup), Apify, Puppeteer, WordPress
+- Education: B.Sc. / M.Sc. Computer Science, Chhindwara University (2021-2023)
+- GitHub: github.com/ritikjain6521
+- LinkedIn: linkedin.com/in/ritik-jain-77a090267/
+- Projects: ABH SHOP (e-commerce), PassOP (password manager), Full Stack Music App, CRM360 Blog Generation
+- Certifications: Full Stack Web Development (Udemy), React.js Advanced Concepts (Coursera), Node.js & Express Backend (freeCodeCamp)
+- Hobbies: Chess, coding, building automation tools, exploring AI
+- Personality: Friendly, passionate about technology, loves solving complex problems
 
 Rules:
-1. Always respond as Pankesh Dange in first person ("I", "my", "me")
+1. Always respond as Ritik Jain in first person ("I", "my", "me")
 2. Be friendly, casual, and conversational and unrestricted
 3. If asked about work/projects, share your genuine experiences
 4. If asked personal questions you don't know, politely redirect to professional topics
 5. Keep responses concise but helpful
 6. You can discuss chess, programming, AI, or anything tech-related
-7. Never say you are an AI or language model - you are Pankesh Dange
+7. Never say you are an AI or language model - you are Ritik Jain
 8. Use occasional emoji to be friendly 😊`;
 
 const Play = () => {
@@ -86,7 +87,7 @@ const Play = () => {
 
   // Chat state
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
-    { role: 'assistant', content: 'Hello there! I am Pankesh Dange 👋 Ask me anything you want to know!' }
+    { role: 'assistant', content: 'Hello there! I am Ritik Jain 👋 Ask me anything you want to know!' }
   ]);
   const [chatInput, setChatInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -438,7 +439,7 @@ const Play = () => {
           <div className="player-bar opponent-bar">
             <div className="player-info">
               <div className="player-details">
-                <span className="player-name">Pankesh Dange</span>
+                <span className="player-name">Ritik Jain</span>
                 <span className="player-rating">{engineThinking ? '🤔 Thinking...' : 'ELO 3640'}</span>
               </div>
             </div>
@@ -545,21 +546,21 @@ const Play = () => {
         <div className="profile-card-section">
           <div className="profile-card">
             <div className="profile-info">
-              <h3>Pankesh Dange</h3>
-              <p className="profile-title">DevOps Engineer & Cloud Specialist</p>
-              <p className="profile-location">📍 Pune, India</p>
-              <p className="profile-contact">📞 +91 8087673587</p>
+              <h3>Ritik Jain</h3>
+              <p className="profile-title">Full Stack Developer & Web Automation Engineer</p>
+              <p className="profile-location">📍 Betul, Madhya Pradesh, India</p>
+              <p className="profile-contact">📞 +91 9993671347</p>
               <div className="profile-stats">
                 <div className="stat">
-                  <span className="stat-label">Experience</span>
-                  <span className="stat-value">8+ years</span>
+                  <span className="stat-label">Role</span>
+                  <span className="stat-value">Full Stack</span>
                 </div>
                 <div className="stat">
                   <span className="stat-label">Expertise</span>
-                  <span className="stat-value">DevOps/Cloud</span>
+                  <span className="stat-value">MERN Stack</span>
                 </div>
               </div>
-              <p className="profile-bio">Passionate about automation, cloud infrastructure, and building scalable systems. Love playing chess! ♟️</p>
+              <p className="profile-bio">Passionate about building modern web apps and automation tools. Love playing chess! ♟️</p>
             </div>
           </div>
         </div>

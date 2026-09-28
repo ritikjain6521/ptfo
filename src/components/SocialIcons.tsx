@@ -3,8 +3,6 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaXTwitter,
-  FaMedium,
-  FaBlog,
 } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
@@ -82,18 +80,8 @@ const SocialIcons = () => {
             <FaInstagram />
           </a>
         </span>
-        <span className="icon-medium">
-          <a href="https://medium.com" target="_blank" rel="noopener noreferrer">
-            <FaMedium />
-          </a>
-        </span>
-        <span className="icon-blog">
-          <a href="https://blog.example.com" target="_blank" rel="noopener noreferrer">
-            <FaBlog />
-          </a>
-        </span>
       </div>
-      <a className="resume-button" href="#">
+      <a className="resume-button" href="/resume" target="_blank" rel="noopener noreferrer">
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />

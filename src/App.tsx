@@ -7,6 +7,7 @@ const CharacterModel = lazy(() => import("./components/Character"));
 const MainContainer = lazy(() => import("./components/MainContainer"));
 const MyWorks = lazy(() => import("./pages/MyWorks"));
 const Play = lazy(() => import("./pages/Play"));
+const Resume = lazy(() => import("./pages/Resume"));
 import { LoadingProvider } from "./context/LoadingProvider";
 
 const App = () => {
@@ -40,6 +41,14 @@ const App = () => {
           element={
             <Suspense fallback={<div>Loading...</div>}>
               <Play />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/resume"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <Resume />
             </Suspense>
           }
         />

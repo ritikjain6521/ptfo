@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
@@ -9,6 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 export let lenis: Lenis | null = null;
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     // Initialize Lenis smooth scroll
     lenis = new Lenis({
@@ -63,18 +65,29 @@ const Navbar = () => {
       lenis?.destroy();
     };
   }, []);
+
+  const handleMobileNavClick = (sectionId: string) => {
+    setMenuOpen(false);
+    setTimeout(() => {
+      const target = document.querySelector(sectionId) as HTMLElement;
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 350);
+  };
+
   return (
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
-          Pankesh Dange
+          Ritik Jain
         </a>
         <a
-          href="mailto:pankeshdange1992@gmail.com"
+          href="mailto:ritikjain6224@gmail.com"
           className="navbar-connect"
           data-cursor="disable"
         >
-          pankeshdange1992@gmail.com
+          ritikjain6224@gmail.com
         </a>
         <ul>
           <li>
@@ -103,7 +116,35 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
+
+        {/* Hamburger Button - Mobile Only */}
+        <button
+          className={`nav-hamburger ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+          data-cursor="disable"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
+
+      {/* Mobile Overlay */}
+      <div
+        className={`mobile-nav-overlay ${menuOpen ? "visible" : ""}`}
+        onClick={() => setMenuOpen(false)}
+      />
+
+      {/* Mobile Drawer */}
+      <nav className={`mobile-nav-drawer ${menuOpen ? "open" : ""}`}>
+        <a href="#about" onClick={() => handleMobileNavClick("#about")}>ABOUT</a>
+        <a href="#work" onClick={() => handleMobileNavClick("#work")}>WORK</a>
+        <a href="#career" onClick={() => handleMobileNavClick("#career")}>CAREER</a>
+        <a href="#experience" onClick={() => handleMobileNavClick("#experience")}>EXPERIENCE</a>
+        <a href="#contact" onClick={() => handleMobileNavClick("#contact")}>CONTACT</a>
+        <p className="mobile-nav-email">ritikjain6224@gmail.com</p>
+      </nav>
 
       <div className="landing-circle1"></div>
       <div className="landing-circle2"></div>
