@@ -119,11 +119,15 @@ export function setCharTimeline(
         .to(character.rotation, { x: -0.04, duration: 2, delay: 1 }, 0);
     }
   } else {
-    // On mobile .what-box-in is always visible via CSS (display:flex !important)
-    // No GSAP scroll trigger needed for it.
-    const whatBoxIn = document.querySelector(".what-box-in") as HTMLElement | null;
-    if (whatBoxIn) {
-      whatBoxIn.style.display = "flex";
+    if (character) {
+      const tM2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".what-box-in",
+          start: "top 70%",
+          end: "bottom top",
+        },
+      });
+      tM2.to(".what-box-in", { display: "flex", duration: 0.1, delay: 0 }, 0);
     }
   }
 }

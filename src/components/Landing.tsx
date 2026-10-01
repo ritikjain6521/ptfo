@@ -1,7 +1,6 @@
 import { PropsWithChildren } from "react";
 import "./styles/Landing.css";
 import { config } from "../config";
-import MobileRobot from "./MobileRobot";
 
 const Landing = ({ children }: PropsWithChildren) => {
   const nameParts = config.developer.fullName.split(" ");
@@ -21,8 +20,6 @@ const Landing = ({ children }: PropsWithChildren) => {
               {lastName && <span>{lastName.toUpperCase()}</span>}
             </h1>
           </div>
-          {/* Mobile Robot Greeter - CSS animated, only shown on mobile ≤ 1024px */}
-          <MobileRobot />
           <div className="landing-info">
             <h3>A</h3>
             <h2 className="landing-info-h2">
@@ -31,6 +28,10 @@ const Landing = ({ children }: PropsWithChildren) => {
             <h2>
               <div className="landing-h2-info">Web Automation Engineer</div>
             </h2>
+          </div>
+          {/* Mobile photo - shows only on mobile when 3D character is hidden */}
+          <div className="mobile-photo">
+            <img src="/images/profile.jpg" alt="Ritik Jain" />
           </div>
         </div>
         {children}

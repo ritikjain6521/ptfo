@@ -1,47 +1,39 @@
-/* Mobile Photo - never used */
+/* Mobile Photo - hidden by default, shown only on mobile */
 .mobile-photo {
   display: none;
 }
 
-/* ══════════════════════════════════════════════
-   MOBILE & TABLET  (≤ 1024px)
-   Uses CSS-only robot instead of heavy 3D scene
-   ══════════════════════════════════════════════ */
+/* Allow 3D character to show on mobile */
 @media only screen and (max-width: 1024px) {
-  /* Kill heavy 3D canvas entirely on mobile */
   .character-model {
-    display: none !important;
-  }
-  .character-rim,
-  .nav-fade {
-    display: none !important;
-  }
-
-  .landing-section {
-    position: relative !important;
-    height: auto !important;
-    min-height: 95svh;
-    max-width: 100vw;
-    box-sizing: border-box;
-    overflow: hidden;
+    display: block !important;
+    height: 50vh !important;
+    width: 100vw !important;
+    top: 30% !important;
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
   }
 
+  .landing-section,
   .landing-container {
     position: relative !important;
     height: auto !important;
-    min-height: 95svh;
-    width: 100%;
+    min-height: 90vh;
     max-width: 100vw;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding: 80px 20px 40px;
-    gap: 0;
+    padding: 0 15px;
+    padding-top: 20px;
+    overflow: visible;
   }
 
-  /* ── 1st — Greeting + name ── */
+  /* Fix spacing between name and subtitle */
   .landing-intro {
     position: relative !important;
     top: auto !important;
@@ -49,35 +41,34 @@
     right: auto !important;
     bottom: auto !important;
     transform: none !important;
+    padding-top: 60px;
+    margin-bottom: 0;
+    z-index: 10;
     text-align: center;
     width: 100% !important;
-    height: auto !important;
-    padding-top: 0;
-    margin-bottom: 4px;
-    z-index: 10;
     order: 1;
+    height: auto !important;
+  }
+
+  .landing-intro h1 {
+    word-spacing: 0.1em;
+    font-size: clamp(26px, 8vw, 36px) !important;
+    line-height: 1.2 !important;
+    margin: 0;
   }
 
   .landing-intro h2 {
     font-size: clamp(14px, 4vw, 18px) !important;
-    margin: 0 0 6px 0;
   }
 
-  .landing-intro h1 {
-    font-size: clamp(26px, 8.5vw, 42px) !important;
-    line-height: 1.15 !important;
-    letter-spacing: 2px;
-    margin: 0;
-  }
-
+  /* Ensure name parts display correctly */
   .landing-intro h1 br {
     display: block;
     content: " ";
+    margin-bottom: 5px;
   }
 
-  /* ── 2nd — CSS Robot (handled in MobileRobot.css, order:2) ── */
-
-  /* ── 3rd — Role / subtitle ── */
+  /* Subtitles Container */
   .landing-info {
     position: relative !important;
     top: auto !important;
@@ -86,22 +77,25 @@
     bottom: auto !important;
     transform: none !important;
     text-align: center;
+    margin-top: 30px;
     z-index: 10;
     background: transparent;
-    padding-bottom: 0;
+    padding-bottom: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     height: auto !important;
     width: 100% !important;
     order: 3;
   }
 
   .landing-info h3 {
+    text-align: center;
     display: none;
   }
 
+  /* Force static positioning to prevent overlaps */
   .landing-info h2,
   h2.landing-info-h2,
   .landing-h2-1,
@@ -111,7 +105,7 @@
     width: 100% !important;
     max-width: 100vw;
     margin: 0 !important;
-    font-size: clamp(15px, 4.5vw, 21px) !important;
+    font-size: clamp(16px, 5vw, 22px) !important;
     line-height: 1.4 !important;
     white-space: normal !important;
     text-align: center;
@@ -119,25 +113,27 @@
     transform: none !important;
   }
 
+  /* Specific styling for the distinct parts */
   .landing-h2-1 {
-    font-size: clamp(17px, 5.5vw, 26px) !important;
+    font-size: clamp(18px, 6vw, 24px) !important;
     color: var(--accentColor);
     font-weight: 700;
   }
 
   .landing-h2-info {
-    font-size: clamp(13px, 4vw, 17px) !important;
-    color: rgba(255, 255, 255, 0.85);
+    font-size: clamp(14px, 4.5vw, 18px) !important;
+    color: rgba(255, 255, 255, 0.9);
   }
 
   .landing-info-h2::after {
     display: none;
   }
+
+  .mobile-photo {
+    display: none !important;
+  }
 }
 
-/* ══════════════════════════════════════════════
-   DESKTOP BACKGROUND ELEMENTS
-   ══════════════════════════════════════════════ */
 .landing-section {
   width: 100%;
   max-width: var(--cMaxWidth);
@@ -331,6 +327,10 @@
   font-weight: 500;
   font-family: "Geist", sans-serif;
 }
+
+/* .landing-intro h1 span {
+   font-weight: 200; 
+} */
 
 .landing-info {
   position: absolute;
