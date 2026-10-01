@@ -489,6 +489,7 @@ body:has(.play-page) {
   .chess-board-section {
     width: 100%;
     max-width: 540px;
+    order: 1;
   }
 
   .chess-side-panel {
@@ -500,6 +501,26 @@ body:has(.play-page) {
 
   .right-panel {
     align-items: center;
+    order: 2;
+  }
+
+  .chat-panel {
+    width: 100%;
+    max-width: 540px;
+    height: 380px;
+    min-height: 300px;
+    max-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    order: 3;
+  }
+
+  .chat-input {
+    font-size: 16px !important; /* Prevents auto-zoom on iOS Safari */
+  }
+
+  .profile-card-section {
+    order: 4;
   }
 
   .player-info {
@@ -529,16 +550,6 @@ body:has(.play-page) {
 
   .control-btn {
     flex: 1;
-  }
-
-  .chat-panel {
-    width: 100%;
-    max-width: 540px;
-    height: 400px;
-    min-height: 320px;
-    max-height: 70vh;
-    display: flex;
-    flex-direction: column;
   }
 
   .chat-messages {

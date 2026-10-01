@@ -40,7 +40,7 @@ h6 {
   }
 }
 
-/* ── Mobile & Tablet: fully unlock vertical scrolling ── */
+/* ── Mobile & Tablet: fully unlock vertical scrolling & prevent horizontal overflow ── */
 @media only screen and (max-width: 1024px) {
   html,
   body {
@@ -50,6 +50,13 @@ h6 {
     min-height: 100% !important;
     touch-action: pan-y !important;
     -webkit-overflow-scrolling: touch;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Prevent horizontal scroll from any element on mobile */
+  body * {
+    max-width: 100vw;
   }
 
   /* Stack all top-level containers as a normal column flow */
@@ -59,6 +66,7 @@ h6 {
     width: 100% !important;
     display: block !important;
     overflow: visible !important;
+    box-sizing: border-box !important;
   }
 
   /* Every direct section child must be full-width and auto-height */
@@ -69,6 +77,15 @@ h6 {
     min-height: 0 !important;
     position: relative !important;
     overflow: visible !important;
+    box-sizing: border-box !important;
+  }
+
+  .container1 {
+    height: auto !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    padding: 0 15px !important;
+    box-sizing: border-box !important;
   }
 }
 
@@ -96,6 +113,12 @@ main {
   100% {
     opacity: 1;
   }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -198,8 +221,17 @@ body {
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
+  .techstack {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 60px 15px !important;
+  }
+
   .techstack h2 {
-    font-size: 40px;
+    position: relative !important;
+    top: auto !important;
+    font-size: 36px !important;
+    margin-bottom: 30px !important;
   }
 }

@@ -40,22 +40,31 @@
   word-spacing: 1px;
   color: rgba(232, 245, 255, 0.9);
   margin: 0;
-  text-align: justify;
+  text-align: left;
   transition: all 0.3s ease;
 }
 
-.about-me p:hover {
-  color: #D4AF37;
-  transform: translateX(4px);
+@media (hover: hover) {
+  .about-me p:hover {
+    color: #D4AF37;
+    transform: translateX(4px);
+  }
 }
 
-.about-me .split-word {
-  display: inline-block;
-  margin-right: 0.3em;
-}
-
-.about-me .split-line {
-  display: block;
+@media only screen and (max-width: 600px) {
+  .about-me {
+    max-width: 100% !important;
+    padding: 20px 0px;
+  }
+  .about-me h3 {
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+  }
+  .about-me p {
+    font-size: 15px;
+    line-height: 26px;
+  }
 }
 
 @media only screen and (min-width: 600px) {

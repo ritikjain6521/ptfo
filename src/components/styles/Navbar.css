@@ -152,12 +152,14 @@
   word-break: break-all;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
   .header {
     padding: 14px 20px;
     width: 100%;
+    max-width: 100vw;
     left: 0;
     transform: none;
+    box-sizing: border-box;
   }
 
   .header ul {

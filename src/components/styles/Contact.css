@@ -229,22 +229,40 @@ a.contact-social {
     gap: 10px;
   }
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1024px) {
+  .contact-section {
+    margin-top: 40px;
+    padding-bottom: 60px;
+    min-height: 0;
+  }
+  .contact-container {
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+  .contact-section h3 {
+    font-size: clamp(32px, 8vw, 50px);
+    margin-bottom: 25px;
+  }
   .contact-flex {
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
+  }
+  .contact-form-wrapper {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 16px; /* Prevents auto-zoom on iOS Safari */
+    width: 100%;
+    box-sizing: border-box;
   }
   .contact-flex p {
     margin-bottom: 0px;
   }
   .contact-flex h4 {
-    margin-top: 20px;
-  }
-  .contact-section {
-    margin-top: 50px;
-    padding-bottom: 50px;
-  }
-  .contact-container {
-    width: calc(100% - 25px);
+    margin-top: 15px;
   }
 }

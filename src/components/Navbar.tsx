@@ -66,6 +66,18 @@ const Navbar = () => {
     };
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   const handleMobileNavClick = (sectionId: string) => {
     setMenuOpen(false);
     setTimeout(() => {
@@ -106,8 +118,8 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a data-href="#experience" href="#experience">
-              <HoverLinks text="EXPERIENCE" />
+            <a data-href="#certification" href="#certification">
+              <HoverLinks text="CERTIFICATIONS" />
             </a>
           </li>
           <li>
@@ -141,8 +153,9 @@ const Navbar = () => {
         <a href="#about" onClick={() => handleMobileNavClick("#about")}>ABOUT</a>
         <a href="#work" onClick={() => handleMobileNavClick("#work")}>WORK</a>
         <a href="#career" onClick={() => handleMobileNavClick("#career")}>CAREER</a>
-        <a href="#experience" onClick={() => handleMobileNavClick("#experience")}>EXPERIENCE</a>
+        <a href="#certification" onClick={() => handleMobileNavClick("#certification")}>CERTIFICATIONS</a>
         <a href="#contact" onClick={() => handleMobileNavClick("#contact")}>CONTACT</a>
+        <a href="/resume" target="_blank" rel="noopener noreferrer">RESUME 📄</a>
         <p className="mobile-nav-email">ritikjain6224@gmail.com</p>
       </nav>
 
