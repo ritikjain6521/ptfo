@@ -27,6 +27,14 @@ const WhatIDo = () => {
   }, []);
   return (
     <div className="whatIDO">
+      {/* Mobile-only: robot character image — mirrors desktop 3D figure at computer */}
+      <div className="what-mobile-image">
+        <div className="what-mobile-image-glow"></div>
+        <div className="what-robot-scanline"></div>
+        <img src="/images/robot_working.jpg" alt="Robot working at computer" className="what-robot-img" />
+      </div>
+
+      {/* Desktop left box: WHAT I DO title */}
       <div className="what-box">
         <h2 className="title">
           W<span className="hat-h2">HAT</span>
@@ -35,6 +43,8 @@ const WhatIDo = () => {
           </div>
         </h2>
       </div>
+
+      {/* Right / mobile-cards box */}
       <div className="what-box">
         <div className="what-box-in">
           <div className="what-border2">
@@ -93,7 +103,7 @@ const WhatIDo = () => {
               <p>
                 {config.skills.develop.details}
               </p>
-              <h5>Skillset & tools</h5>
+              <h5>Skillset &amp; tools</h5>
               <div className="what-content-flex">
                 {config.skills.develop.tools.map((tool, index) => (
                   <div key={index} className="what-tags">{tool}</div>
@@ -126,7 +136,7 @@ const WhatIDo = () => {
               <p>
                 {config.skills.design.details}
               </p>
-              <h5>Skillset & tools</h5>
+              <h5>Skillset &amp; tools</h5>
               <div className="what-content-flex">
                 {config.skills.design.tools.map((tool, index) => (
                   <div key={index} className="what-tags">{tool}</div>

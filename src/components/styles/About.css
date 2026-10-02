@@ -1,41 +1,51 @@
+/* ═══════════════════════════════════════════════
+   ABOUT SECTION — base styles (desktop ≥ 1025px)
+   The 3D character (fixed, left side) is the "image"
+   on desktop so .about-mobile-image is hidden there.
+   ═══════════════════════════════════════════════ */
+
 .about-section {
   display: flex;
   align-items: center;
-  justify-content: left;
-  place-items: center;
+  justify-content: right;
   position: relative;
   opacity: 1;
-  height: auto;
+  height: var(--vh);
   width: var(--cWidth);
+  max-width: 1920px;
   margin: auto;
+}
+
+/* ── Mobile character image (hidden on desktop) ── */
+.about-mobile-image {
+  display: none;
 }
 
 .about-me {
   padding: 40px 0px;
   padding-bottom: 0;
-  width: 100%;
-  max-width: calc(100% - 15px);
+  width: 50%;
 }
 
 .about-me h3 {
-  font-size: 18px;
+  font-size: 2.5vw;
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
   font-weight: 400;
   color: var(--accentColor);
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .about-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
 }
 
 .about-me p {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 28px;
+  font-size: 1.3vw;
+  line-height: 1.8vw;
+  font-weight: 400;
   letter-spacing: 0.3px;
   word-spacing: 1px;
   color: rgba(232, 245, 255, 0.9);
@@ -51,100 +61,193 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .about-me {
+/* ════════════════════════════════════════════════
+   MOBILE & TABLET  ≤ 1024px
+   Two-column: image left  |  text right
+   Mirrors the desktop 3D-character-left layout.
+   ════════════════════════════════════════════════ */
+@media only screen and (max-width: 1024px) {
+
+  /* Force everything visible (GSAP skipped on mobile) */
+  .about-section,
+  .about-me,
+  .about-me h3,
+  .about-me p,
+  .about-content,
+  .about-me .split-word,
+  .about-me .split-char {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Section becomes a two-column row */
+  .about-section {
+    width: 100% !important;
     max-width: 100% !important;
-    padding: 20px 0px;
+    height: auto !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    padding: 50px 20px !important;
+    box-sizing: border-box !important;
+    overflow: hidden;
   }
-  .about-me h3 {
-    font-size: 20px;
-    letter-spacing: 3px;
-    margin-bottom: 20px;
-  }
-  .about-me p {
-    font-size: 15px;
-    line-height: 26px;
-  }
-}
 
-@media only screen and (min-width: 600px) {
-  .about-section {
+  /* ── Left column: robot character image ── */
+  .about-mobile-image {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    width: 45% !important;
+    flex-shrink: 0;
+    position: relative;
+    animation: aboutImgFadeIn 0.9s ease-out both;
   }
 
+  /* Robot portrait image */
+  .about-robot-img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50% 50% 45% 45%;
+    border: 2px solid rgba(212, 175, 55, 0.4);
+    box-shadow:
+      0 0 20px rgba(212, 175, 55, 0.3),
+      0 0 60px rgba(180, 100, 255, 0.15),
+      inset 0 0 20px rgba(0, 200, 255, 0.05);
+    position: relative;
+    z-index: 2;
+    animation: aboutImgFloat 4s ease-in-out infinite;
+    filter: brightness(1.05) contrast(1.05);
+  }
+
+  /* Scanline overlay for tech/robot feel */
+  .about-robot-scanline {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 220px;
+    border-radius: 50% 50% 45% 45%;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(0, 200, 255, 0.03) 3px,
+      rgba(0, 200, 255, 0.03) 4px
+    );
+    z-index: 3;
+    pointer-events: none;
+    animation: aboutScanMove 6s linear infinite;
+    opacity: 0.6;
+  }
+
+  /* Glowing blob behind the robot */
+  .about-mobile-image-glow {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(
+      circle,
+      rgba(180, 100, 255, 0.35) 0%,
+      rgba(212, 175, 55, 0.2) 40%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(35px);
+    animation: aboutGlowPulse 3s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  /* ── Right column: text ── */
   .about-me {
-    width: 500px;
+    width: 55% !important;
+    max-width: 55% !important;
+    padding: 0 0 0 20px !important;
+    box-sizing: border-box !important;
+    animation: aboutTextSlide 0.9s ease-out both;
+    animation-delay: 0.15s;
   }
 
   .about-me h3 {
-    font-size: 22px;
-    letter-spacing: 6px;
-  }
-
-  .about-me p {
-    font-size: 17px;
-    line-height: 30px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .about-me {
-    width: 500px;
-    max-width: calc(100% - 70px);
-    transform: translateY(0%);
-  }
-
-  .about-me h3 {
-    font-size: 25px;
-    letter-spacing: 7px;
-    margin-bottom: 35px;
-  }
-
-  .about-me p {
-    font-size: 18px;
-    line-height: 32px;
+    font-size: clamp(16px, 4vw, 22px) !important;
+    letter-spacing: 3px !important;
+    margin-bottom: 16px !important;
   }
 
   .about-content {
-    gap: 24px;
-  }
-
-  .about-section {
-    opacity: 1;
-  }
-}
-
-@media only screen and (min-width: 1025px) {
-  .about-section {
-    width: var(--cWidth);
-    justify-content: right;
-    max-width: 1920px;
-    height: var(--vh);
-    padding: 0px;
-    opacity: 1;
-  }
-
-  .about-me {
-    padding: 0px;
-    width: 50%;
-  }
-
-  .about-me h3 {
-    font-size: 2.5vw;
-    margin-bottom: 40px;
+    gap: 14px !important;
   }
 
   .about-me p {
-    font-size: 1.3vw;
-    line-height: 1.8vw;
-    font-weight: 400;
-  }
-
-  .about-content {
-    gap: 30px;
+    font-size: clamp(12px, 2.5vw, 15px) !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
   }
 }
 
+/* ────────────────────────────────────────────────
+   Small phones  ≤ 550px  — stack vertically
+   ──────────────────────────────────────────────── */
+@media only screen and (max-width: 550px) {
+  .about-section {
+    flex-direction: column !important;
+    padding: 40px 15px !important;
+    align-items: center !important;
+  }
+
+  .about-mobile-image {
+    width: 70% !important;
+    max-width: 200px !important;
+    margin-bottom: 28px;
+  }
+
+  .about-robot-img {
+    max-width: 180px;
+    border-radius: 50% 50% 45% 45%;
+  }
+
+  .about-robot-scanline {
+    width: 180px;
+    height: 180px;
+  }
+
+  .about-me {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    text-align: center;
+  }
+
+  .about-me h3 {
+    font-size: 18px !important;
+    letter-spacing: 4px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .about-me p {
+    font-size: 14px !important;
+    line-height: 22px !important;
+    text-align: left;
+  }
+
+  .about-content {
+    gap: 16px !important;
+  }
+}
+
+/* ════════════════════════════════════════════════
+   Large desktop  ≥ 1950px
+   ════════════════════════════════════════════════ */
 @media only screen and (min-width: 1950px) {
   .about-me h3 {
     font-size: 3rem;
@@ -161,3 +264,49 @@
   }
 }
 
+/* ═══════════════════════════════════════════════
+   KEYFRAMES
+   ═══════════════════════════════════════════════ */
+@keyframes aboutImgFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes aboutTextSlide {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Robot floating — gentle bob like the desktop 3D model */
+@keyframes aboutImgFloat {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  25%  { transform: translateY(-6px) rotate(0.5deg); }
+  50%  { transform: translateY(-12px) rotate(0deg); }
+  75%  { transform: translateY(-6px) rotate(-0.5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Dual-colour glow pulse — purple + gold to match robot palette */
+@keyframes aboutGlowPulse {
+  0%   { opacity: 0.5; transform: translate(-50%, -50%) scale(0.95); }
+  50%  { opacity: 1;   transform: translate(-50%, -50%) scale(1.25); }
+  100% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.95); }
+}
+
+/* Scanline sweep — slow downward scroll */
+@keyframes aboutScanMove {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 100px; }
+}

@@ -128,6 +128,13 @@ export function setCharTimeline(
         },
       });
       tM2.to(".what-box-in", { display: "flex", duration: 0.1, delay: 0 }, 0);
+
+      // On mobile, the scroll timeline tl2 isn't used to reveal the monitor/screenlight,
+      // so we just reveal them automatically after a delay so the robot is properly lit.
+      if (monitor && screenLight) {
+        gsap.to(monitor.material, { opacity: 1, duration: 0.8, delay: 3.2 });
+        gsap.to(screenLight.material, { opacity: 1, duration: 0.8, delay: 4.5 });
+      }
     }
   }
 }

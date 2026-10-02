@@ -42,6 +42,15 @@ h6 {
 
 /* ── Mobile & Tablet: fully unlock vertical scrolling & prevent horizontal overflow ── */
 @media only screen and (max-width: 1024px) {
+  /* Safety net: GSAP sets autoAlpha:0 (opacity+visibility) on split-word/split-char spans.
+     On mobile we skip GSAP animations in JS, but set CSS override as a backup.
+     NOTE: Do NOT override transform here — GSAP needs it for landing animations. */
+  .split-word,
+  .split-char {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
   html,
   body {
     overflow-x: hidden !important;
@@ -54,11 +63,6 @@ h6 {
     max-width: 100% !important;
   }
 
-  /* Prevent horizontal scroll from any element on mobile */
-  body * {
-    max-width: 100vw;
-  }
-
   /* Stack all top-level containers as a normal column flow */
   .container-main {
     position: static !important;
@@ -69,8 +73,9 @@ h6 {
     box-sizing: border-box !important;
   }
 
-  /* Every direct section child must be full-width and auto-height */
-  .container-main > * {
+  /* Every direct section child must be full-width and auto-height
+     Exception: .character-container needs special sizing for WebGL canvas */
+  .container-main > *:not(.character-container) {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
@@ -78,6 +83,21 @@ h6 {
     position: relative !important;
     overflow: visible !important;
     box-sizing: border-box !important;
+  }
+
+  /* character-container: uses position:absolute so it overlays the landing section
+     without taking up flow space. Width/height must NOT collapse to auto/0. */
+  .container-main > .character-container {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100svh !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
   }
 
   .container1 {
